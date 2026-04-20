@@ -25,15 +25,21 @@ public class ProductService : IProductService
       _logger.LogInformation("Cache hit for key: {CacheKey}", cacheKey);
       return cachedData;
     }
+    _logger.LogInformation("Cache miss for key: {CacheKey}", cacheKey);
 
     var query = _productRepository.Query();
 
+    if (!string.IsNullOrWhiteSpace(request.Keyword))
+    {
+      query = query.Where(x => x.Name.Contains(request.Keyword));
+    }
+
     var totalItems = await query.CountAsync();
+
     var products = await query
-    .Where(x => x.Name.Contains(request.Keyword ?? ""))
-    .Skip((request.Page - 1) * request.PageSize)
-    .Take(request.PageSize)
-    .ToListAsync();
+        .Skip((request.Page - 1) * request.PageSize)
+        .Take(request.PageSize)
+        .ToListAsync();
 
     var result = new PageResult<ProductResponse>
     {
