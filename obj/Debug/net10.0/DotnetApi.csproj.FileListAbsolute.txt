@@ -168,3 +168,4 @@ E:\learning\dotnet\DotnetApi\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.d
 E:\learning\dotnet\DotnetApi\bin\Debug\net10.0\Pipelines.Sockets.Unofficial.dll
 E:\learning\dotnet\DotnetApi\bin\Debug\net10.0\StackExchange.Redis.dll
 E:\learning\dotnet\DotnetApi\bin\Debug\net10.0\System.IO.Hashing.dll
+E:\learning\dotnet\DotnetApi\obj\Debug\net10.0\DotnetApi.sourcelink.json
